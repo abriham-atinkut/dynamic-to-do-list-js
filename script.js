@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   addButton.addEventListener("click", addTask);
-  taskInput.addEventListener("keydown", function (event) {
+  taskInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
       addButton.click(); // Trigger buttons's click  event
