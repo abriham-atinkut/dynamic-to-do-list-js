@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const list = document.createElement("li");
       list.innerHTML = taskText;
       const toDoListButton = document.createElement("button");
-      toDoListButton.classList = "remove-btn";
+      toDoListButton.classList.add = "remove-btn";
       toDoListButton.addEventListener("click", (event) => {
         // checks if element is clicked
         if (event.target.classList.contains("remove-btn")) {
