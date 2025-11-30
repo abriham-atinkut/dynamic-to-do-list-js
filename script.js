@@ -1,9 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+  function loadTasks() {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    storedTasks.forEach((taskText) => addTask(taskText, false)); // 'false' indicates not to save again to Local Storage
+  }
+  loadTasks();
   const addButton = document.getElementById("add-task-btn");
 
   const taskInput = document.getElementById("task-input");
   const taskList = document.getElementById("task-list");
-  function addTask() {
+  function addTask(text, save = true) {
+    if (save) {
+      const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+      storedTasks.push(text);
+      localStorage.setItem("tasks", JSON.stringify(storedTasks));
+    }
     let taskText = taskInput.value.trim();
     if (taskText === "") {
       alert("Entry task!");
