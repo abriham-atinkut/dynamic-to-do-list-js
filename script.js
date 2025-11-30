@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const list = document.createElement("li");
       list.innerHTML = taskText;
       const toDoListButton = document.createElement("button");
-      toDoListButton.classList.add = "remove-btn";
+      // classList.add
+      toDoListButton.classList = "remove-btn";
       toDoListButton.addEventListener("click", (event) => {
         // checks if element is clicked
         if (event.target.classList.contains("remove-btn")) {
@@ -32,4 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   addButton.addEventListener("click", addTask);
+  taskInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addButton.click(); // Trigger buttons's click  event
+    }
+  });
 });
